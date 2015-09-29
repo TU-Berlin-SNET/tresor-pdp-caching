@@ -1,0 +1,31 @@
+<Rule Effect="Permit" RuleId="{ruleId}">
+    <Target>
+        <AnyOf>
+            <AllOf>
+                {rule-matches}
+            </AllOf>
+        </AnyOf>
+    </Target>
+    <Condition>
+        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-regexp-match">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">user\d+</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                    <AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"/>
+                </Apply>
+            </Apply>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-at-least-one-member-of">
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-bag">
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">chief</AttributeValue>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">employee</AttributeValue>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">authorized</AttributeValue>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">intern</AttributeValue>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">temp</AttributeValue>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">associate</AttributeValue>
+                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">trusted</AttributeValue>
+                </Apply>
+                <AttributeDesignator AttributeId="role-id" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"/>
+            </Apply>
+        </Apply>
+    </Condition>
+</Rule>

@@ -1,0 +1,4 @@
+<Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-regexp-match">
+    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">.*/{path}</AttributeValue>
+    <AttributeDesignator AttributeId="path" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"/>
+</Match>

@@ -1,0 +1,4 @@
+<Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">{organization}</AttributeValue>
+    <AttributeDesignator AttributeId="organization-id" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"/>
+</Match>
